@@ -13,6 +13,7 @@
 */.settings
 .project
 .classpath
+*/.gitignore
 
 # Gradle # 
 /bin/
