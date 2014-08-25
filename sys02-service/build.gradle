@@ -1,0 +1,7 @@
+dependencies {
+
+	compile project(':sys02-util')
+	compile project(':sys02-model')	
+	
+	
+}

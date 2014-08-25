@@ -1,0 +1,52 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.min.css" /> -->
+<!-- <script src="http://code.jquery.com/jquery-1.11.0.js"></script> -->
+<!-- <script src="http://code.jquery.com/mobile/1.4.1/jquery.mobile-1.4.1.js"></script> -->
+
+
+<script src="http://code.angularjs.org/1.2.12/angular.js"></script>
+<script src="http://code.angularjs.org/1.2.12/angular-route.js"></script>
+<script src="http://code.angularjs.org/1.2.12/angular-resource.js"></script>
+
+<script src="www/js/app.js"></script>
+<script src="www/js/controllers.js"></script>
+<script src="www/js/services.js"></script>
+
+<script>
+	jQuery.noConflict();
+	(function($) {
+		$(function() {
+
+			$("#bb").button().click(function(event) {
+				console.log("demo")
+			});
+
+// 			s = document.createElement('script');
+// 			s.src = 'http://code.angularjs.org/1.2.10/angular-resource.min.js';
+// 			document.head.appendChild(s);
+
+// 			var s = $create('srcipt');
+// 			s.src = 'http://code.angularjs.org/1.2.10/angular-resource.min.js';
+// 			$append(odv);
+
+		});
+	})(jQuery);
+</script>
+
+</head>
+<body>
+	<div ng-view></div>
+	
+	
+	HOLas
+	<button id="bb">index</button>
+</body>
+</html>

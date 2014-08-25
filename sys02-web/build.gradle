@@ -1,0 +1,21 @@
+import java.lang.invoke.LambdaForm.Compiled;
+
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+
+dependencies {
+
+	compile project(':sys02-model')
+
+	compile "$spring_webmvc"
+	compile "$jackson"
+	compile "$servlet"	
+}
+
+
+task t << { println "$rootProject" }
+
+task jetty << {
+	apply plugin: 'jetty'
+	jettyRunWar.execute()	
+}
