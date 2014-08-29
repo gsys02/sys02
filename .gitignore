@@ -14,6 +14,7 @@
 .project
 .classpath
 */.gitignore
+*/.cache
 
 # Gradle # 
 */bin

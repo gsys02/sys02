@@ -1,4 +1,4 @@
-package model;
+package net.exacode.bootstrap.web.model;
 
 public class Shop {
 
@@ -20,5 +20,4 @@ public class Shop {
 	public void setStaffName(String[] staffName) {
 		this.staffName = staffName;
 	}
-
 }

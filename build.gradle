@@ -1,20 +1,81 @@
-allprojects {
+project.ext {
+	java_version	=	'1.7'
+	version			=   '0.0.00'
+	
+	util			= 	':sys02-util'
+	model			= 	':sys02-model'
+	service			= 	':sys02-service'
+	web				= 	':sys02-web'
+	
+	junit			=	'junit:junit:4.11'
+	log4j			=	'org.slf4j:slf4j-log4j12:1.7.5'
+	jackson			=	'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+	spring_webmvc	=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
+	groovy 			=	'org.codehaus.groovy:groovy-all:2.3.6'
+	scala			=	'org.scala-lang:scala-compiler:2.11.0'
+}
+def _=project.ext
+
+allprojects { version = _.version }
+
+subprojects {
 	apply plugin: 'java'
-	apply plugin: 'groovy'
 	apply plugin: 'eclipse'
-	
-	sourceCompatibility = "$java_version"
-	
+
+	sourceCompatibility = _.java_version
+
 	repositories {
 		mavenLocal()
 		mavenCentral()
 	}
-
 	dependencies {
-		
-		compile 	"$log4j"
-		
-		testCompile "$junit"
-		testCompile "$groovy"
+		compile 	_.log4j
+		testCompile _.junit
 	}
 }
+
+project(_.util){
+}
+
+project(_.model){
+
+	apply plugin: 'scala'
+
+	dependencies {		
+		compile project(_.util)
+		testCompile _.scala
+	}
+}
+project(_.service){
+
+	apply plugin: 'groovy'
+
+	dependencies {
+		compile project(_.util)
+		compile project(_.model)
+		
+		testCompile _.groovy
+	}
+}
+project(_.web){
+
+	apply plugin: 'war'
+	apply plugin: 'jetty'
+	apply plugin: 'eclipse-wtp'
+
+	dependencies {
+		compile project(_.util)
+		compile project(_.service)
+
+		compile 		_.spring_webmvc
+		compile 		_.jackson
+		providedCompile _.servlet
+	}
+
+	task jetty << {
+		httpPort=8080
+		jettyRunWar.execute()
+	}
+}
+

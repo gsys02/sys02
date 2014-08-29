@@ -1,6 +1,8 @@
 package net.exacode.bootstrap.web.controller;
 
-import model.Shop;
+
+
+import net.exacode.bootstrap.web.model.Shop;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
