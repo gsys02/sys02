@@ -1,15 +1,14 @@
-package tes;
+package te;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-class D {
+class Tee {
 
 	@Test
 	public void test() {
-		println "hola"
+		print "Not yet implemented";
 	}
 
 }
-

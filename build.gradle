@@ -17,7 +17,7 @@ project.ext {
 }
 def _=project.ext
 
-allprojects { version = _.version }
+allprojects {  version = _.version  }
 
 subprojects {
 	apply plugin: 'java'
@@ -50,7 +50,7 @@ project(_.model){
 
 	dependencies {
 		compile project(_.util)
-		testCompile _.scala
+		compile _.scala
 	}
 }
 
@@ -62,10 +62,9 @@ project(_.service){
 	apply plugin: 'groovy'
 
 	dependencies {
-		compile project(_.util)
-		compile project(_.model)
-
-		testCompile _.groovy
+		compile project (_.util)
+		compile project (_.model)
+		compile         _.groovy
 	}
 }
 
@@ -76,15 +75,17 @@ project(_.web){
 
 	apply plugin: 'war'
 	apply plugin: 'jetty'
-	apply plugin: 'groovy'	
+	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
 	dependencies {
-		compile project(_.util)
-		compile project(_.service)
+		compile project (_.util)
+		compile project (_.service)
+		compile			 _.groovy
 
-		compile 		_.spring_webmvc
-		compile 		_.jackson
+		compile 		 _.spring_webmvc
+		compile 		 _.jackson
+
 		providedCompile _.servlet
 	}
 
