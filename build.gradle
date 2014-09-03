@@ -2,18 +2,34 @@ project.ext {
 	java_version	=	'1.7'
 	version			=   '0.0.00'
 
+	// projects
 	util			= 	':sys02-util'
 	model			= 	':sys02-model'
 	service			= 	':sys02-service'
 	web				= 	':sys02-web'
 
-	junit			=	'junit:junit:4.11'
-	log4j			=	'org.slf4j:slf4j-log4j12:1.7.5'
-	jackson			=	'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
-	spring_webmvc	=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	// server
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
+
+	// spring
+	spring_webmvc	=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	spring_webflow	=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
+
+	//jsf
+	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
+	jsf_impl		=   'com.sun.faces:jsf-impl:2.2.0'
+	primerfaces		=   'org.primefaces:primefaces:5.0'
+
+	// lang
 	groovy 			=	'org.codehaus.groovy:groovy-all:2.3.6'
 	scala			=	'org.scala-lang:scala-compiler:2.11.0'
+
+	// util
+	slf4j			=	'org.slf4j:slf4j-log4j12:1.7.5'
+	jackson			=	'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+
+	// test
+	junit			=	'junit:junit:4.11'
 }
 def _=project.ext
 
@@ -28,9 +44,11 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
+		maven{ url 'http://repository.primefaces.org' }
 	}
+
 	dependencies {
-		compile 	_.log4j
+		compile 	_.slf4j
 		testCompile _.junit
 	}
 }
@@ -40,6 +58,7 @@ subprojects {
  */
 project(_.util){
 }
+
 
 /* 
  * MODEL
@@ -53,6 +72,7 @@ project(_.model){
 		compile _.scala
 	}
 }
+
 
 /*
  * SERVICE
@@ -68,6 +88,7 @@ project(_.service){
 	}
 }
 
+
 /*
  * WEB
  */
@@ -81,10 +102,14 @@ project(_.web){
 	dependencies {
 		compile project (_.util)
 		compile project (_.service)
-		compile			 _.groovy
 
-		compile 		 _.spring_webmvc
-		compile 		 _.jackson
+		compile			_.spring_webmvc
+		compile			_.spring_webflow
+		compile			_.groovy
+		compile 		_.jackson
+		compile			_.jsf_api
+		compile			_.jsf_impl
+		compile			_.primerfaces
 
 		providedCompile _.servlet
 	}
