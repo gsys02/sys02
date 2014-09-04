@@ -23,7 +23,7 @@
 	<mvc:view-controller path="/home" />
 
 	<mvc:annotation-driven />
-	<mvc:resources location="/" mapping="/resources/**" />
+	<mvc:resources location="/WEB-INF/public/" mapping="/public/**" />
 
 	<context:component-scan base-package="net.exacode.bootstrap.web" />
 	<context:component-scan base-package="org.springframework.samples.webflow" />
