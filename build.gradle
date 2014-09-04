@@ -14,11 +14,13 @@ project.ext {
 	// spring
 	spring_webmvc	=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
 	spring_webflow	=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
+	spring_faces	=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
+	
 
 	//jsf
 	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
 	jsf_impl		=   'com.sun.faces:jsf-impl:2.2.0'
-	primerfaces		=   'org.primefaces:primefaces:5.0'
+	primerfaces		=   'org.primefaces:primefaces:4.0'
 
 	// lang
 	groovy 			=	'org.codehaus.groovy:groovy-all:2.3.6'
@@ -105,6 +107,7 @@ project(_.web){
 
 		compile			_.spring_webmvc
 		compile			_.spring_webflow
+		compile			_.spring_faces
 		compile			_.groovy
 		compile 		_.jackson
 		compile			_.jsf_api

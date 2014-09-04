@@ -23,14 +23,14 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value></param-value>
+			<param-value>/WEB-INF/servlet-context.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>mvc</servlet-name>
-		<url-pattern>/</url-pattern>
+		<url-pattern>/app/*</url-pattern>
 	</servlet-mapping>
 
 
@@ -60,15 +60,9 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<!-- Just here so the JSF implementation can initialize -->
-	<servlet-mapping>
-		<servlet-name>Faces Servlet</servlet-name>
-		<url-pattern>*.faces</url-pattern>
-	</servlet-mapping>
 
-
-
-
-
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 
 </web-app>

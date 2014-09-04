@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class GreetingsController {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/d", method = RequestMethod.GET)
 	public String index() {
-		return "index";
+		return "home";
 	}
 	
 	@RequestMapping(value = "/greet/{name}", method = RequestMethod.GET)
