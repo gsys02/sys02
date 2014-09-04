@@ -8,13 +8,16 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/root-context.xml</param-value>
+		<param-value>classpath:/spring-web.xml</param-value>
 	</context-param>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+	</listener>
 
 	<!-- SPRING MVC -->
 
@@ -23,7 +26,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/servlet-context.xml</param-value>
+			<param-value>/WEB-INF/dispatcher.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -41,25 +44,31 @@
 		<param-value>.xhtml</param-value>
 	</context-param>
 
-	<!-- Enables special Facelets debug output during development -->
 	<context-param>
 		<param-name>javax.faces.PROJECT_STAGE</param-name>
 		<param-value>Development</param-value>
 	</context-param>
 
-	<!-- Causes Facelets to refresh templates during development -->
 	<context-param>
 		<param-name>javax.faces.FACELETS_REFRESH_PERIOD</param-name>
 		<param-value>1</param-value>
 	</context-param>
 
-	<!-- Just here so the JSF implementation can initialize, *not* used at runtime -->
 	<servlet>
 		<servlet-name>Faces Servlet</servlet-name>
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.faces</url-pattern>
+	</servlet-mapping>
+
+	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/taglib.xml</param-value>
+	</context-param>
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

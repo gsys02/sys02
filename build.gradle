@@ -12,9 +12,12 @@ project.ext {
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
 
 	// spring
-	spring_webmvc	=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
-	spring_webflow	=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
-	spring_faces	=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
+	spring_webmvc			=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	spring_webflow			=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
+	spring_faces			=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
+	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
+	spring_security_config	=	'org.springframework.security:spring-security-config:3.2.5.RELEASE'
+	
 	
 
 	//jsf
@@ -108,6 +111,8 @@ project(_.web){
 		compile			_.spring_webmvc
 		compile			_.spring_webflow
 		compile			_.spring_faces
+		compile			_.spring_security
+		compile			_.spring_security_config
 		compile			_.groovy
 		compile 		_.jackson
 		compile			_.jsf_api
