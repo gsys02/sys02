@@ -31,7 +31,7 @@
 
 	<servlet-mapping>
 		<servlet-name>mvc</servlet-name>
-		<url-pattern>/app/*</url-pattern>
+		<url-pattern>/web/*</url-pattern>
 	</servlet-mapping>
 
 	<!-- SPRING SECURITY -->
