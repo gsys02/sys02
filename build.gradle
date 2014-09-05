@@ -18,6 +18,7 @@ project.ext {
 	spring_faces			=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
 	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
 	spring_security_config	=	'org.springframework.security:spring-security-config:3.2.5.RELEASE'
+	spring_security_taglibs	=	'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
 	
 	//jsf
 	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
@@ -118,6 +119,7 @@ project(_.web){
 		compile				_.spring_faces
 		compile				_.spring_security
 		compile				_.spring_security_config
+		compile				_.spring_security_taglibs
 		compile				_.groovy
 		compile 			_.jackson
 		compile				_.jsf_api
