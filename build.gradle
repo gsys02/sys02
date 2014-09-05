@@ -19,7 +19,7 @@ project.ext {
 	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
 	spring_security_config	=	'org.springframework.security:spring-security-config:3.2.5.RELEASE'
 	spring_security_taglibs	=	'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
-	
+
 	//jsf
 	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
 	jsf_impl		=   'com.sun.faces:jsf-impl:2.2.0'
@@ -49,7 +49,7 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven{ 
+		maven{
 			url 'http://repository.primefaces.org'
 			url 'https://repo.spring.io/milestone'
 		}
@@ -102,14 +102,22 @@ project(_.service){
  */
 project(_.web){
 
-	apply plugin: 'war'	
+	apply plugin: 'war'
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
-	
-	configurations {
-		jetty8
+
+	eclipse {
+		wtp {
+			facet {
+				facet name: 'java', version: _.java_version
+				facet name: 'jst.web', version: '2.5'
+				facet name: 'wst.jsdt.web', version: '1.0'
+			}
+		}
 	}
-	
+
+	configurations { jetty8 }
+
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
@@ -127,10 +135,10 @@ project(_.web){
 		compile				_.primerfaces
 
 		providedCompile 	_.servlet
-		
+
 		jetty8			 	_.jetty
 	}
-	
+
 	task jetty(type: JavaExec) {
 		main = "org.mortbay.jetty.runner.Runner"
 		args = [war.archivePath]
