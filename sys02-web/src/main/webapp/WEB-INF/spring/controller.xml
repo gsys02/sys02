@@ -11,8 +11,6 @@
 		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
 	">
 
-	
-	<view-controller path="/home" />
 
 	<annotation-driven />
 	<resources location="/WEB-INF/public/" mapping="/public/**" />
