@@ -17,15 +17,14 @@
 		http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd
 	">
 
-	<import resource="security.xml" />
 
-	<mvc:view-controller path="/login" />
-	<mvc:view-controller path="/home" />
+
+	<mvc:view-controller path="/login" />	
 
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/public/" mapping="/public/**" />
 
-	<context:component-scan base-package="net.exacode.bootstrap.web" />
+<!-- 	<context:component-scan base-package="net.exacode.bootstrap.web" /> -->
 	<context:component-scan base-package="org.springframework.samples.webflow" />
 
 	<faces:resources />
@@ -36,7 +35,7 @@
 
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
-		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".xhtml" />
 	</bean>
 
@@ -44,20 +43,12 @@
 		<property name="flowExecutor" ref="flowExecutor" />
 	</bean>
 
-	<bean id="facesContextListener"
-		class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
-
-	<bean id="securityListener"
-		class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
-
-
 	<webflow:flow-executor id="flowExecutor">
 		<webflow:flow-execution-listeners>
 			<webflow:listener ref="facesContextListener" />
 			<webflow:listener ref="securityListener" />
 		</webflow:flow-execution-listeners>
 	</webflow:flow-executor>
-
 
 	<webflow:flow-registry id="flowRegistry"
 		flow-builder-services="flowBuilderServices" base-path="/WEB-INF/flows">
@@ -67,5 +58,11 @@
 
 	<webflow:flow-builder-services id="flowBuilderServices"
 		development="true" />
+
+	<bean id="facesContextListener"
+		class="org.springframework.faces.webflow.FlowFacesContextLifecycleListener" />
+
+	<bean id="securityListener"
+		class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
 
 </beans>
