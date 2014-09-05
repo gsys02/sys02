@@ -28,7 +28,7 @@
 #
 # gradle
 #
-.gradle
+.gradle/*
 */bin/
 
 #
