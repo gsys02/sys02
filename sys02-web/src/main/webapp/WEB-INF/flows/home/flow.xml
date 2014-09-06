@@ -8,7 +8,7 @@
 
 
 	<view-state id="view">
-		<transition on="a" to="finish" />
+		<transition on="a" to="b" />
 	</view-state>
 
 	<end-state id="finish"></end-state>

@@ -6,6 +6,6 @@
 		http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd
 	">
 
-	<view-state id="view" />
+	<view-state id="login2" />
 
 </flow>

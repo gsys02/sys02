@@ -40,9 +40,9 @@
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping"
 		p:flowRegistry-ref="flowRegistry" />
 
-	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-		p:viewClass="org.springframework.faces.mvc.JsfView" p:prefix="/WEB-INF/views/"
-		p:suffix=".xhtml" />
+<!-- 	<beans:bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" -->
+<!-- 		p:viewClass="org.springframework.faces.mvc.JsfView" p:prefix="/WEB-INF/views/" -->
+<!-- 		p:suffix=".xhtml" /> -->
 
 	<beans:bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter"
 		p:flowExecutor-ref="flowExecutor" />

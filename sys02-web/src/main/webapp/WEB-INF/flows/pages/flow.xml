@@ -6,6 +6,12 @@
 		http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd
 	">
 
-	<view-state id="view" />
+	<view-state id="page">
+		<transition on="next" to="list"/>		
+	</view-state>
+
+	<view-state id="list">
+	<transition on="back" to="page"/>
+	</view-state>
 
 </flow>

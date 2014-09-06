@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>sys02</title>
+
+<link rel="stylesheet"
+	href="${request.contextPath}/web/public/blueprint/screen.css"
+	type="text/css" media="screen, projection" />
+
+<link rel="stylesheet"
+	href="${request.contextPath}/web/public/blueprint/print.css"
+	type="text/css" media="print" />
+
+<ui:insert name="head" />
+</head>
+
+<body>
+	<div style="margin: 20px">
+		<ul>
+			<li><p:link value="/web/login2" /></li>
+		</ul>
+	</div>
+
+	<div style="text-align: center;">		
+		<ui:insert name="body" />
+	</div>
+
+</body>
+
+</html>
