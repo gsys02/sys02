@@ -1,39 +1,26 @@
+# java
 *.class
-
-#
-# Package Files 
-#
-
 *.jar
 *.war
 *.ear
 
-#
-# Linux 
-#
-
+# linux 
 *~
 
-#
 # Eclipse
-#
+*.settings
+*.project
+*.classpath
 
-.settings/*
-*/.settings
-.project
-.classpath
 */.gitignore
-*/.cache
+*.cache
 
-#
 # gradle
-#
-.gradle/*
-*/bin/
+*.gradle
+/build/
+/bin/
 
-#
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-#
 
 hs_err_pid*
 /build/
