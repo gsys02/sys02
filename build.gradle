@@ -13,7 +13,7 @@ project.ext {
 	jetty			=	'org.mortbay.jetty:jetty-runner:8.1.0.RC0'
 
 	// spring
-	spring_webmvc			=	'org.springframework:spring-webmvc:4.0.0.RELEASE'
+	spring_context			=	'org.springframework:spring-context:4.1.0.RELEASE'
 	spring_webflow			=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
 	spring_faces			=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
 	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
@@ -50,8 +50,7 @@ subprojects {
 		mavenLocal()
 		mavenCentral()
 		maven{
-			url 'http://repository.primefaces.org'
-			url 'https://repo.spring.io/milestone'
+			url 'http://repository.primefaces.org'		
 		}
 	}
 
@@ -122,17 +121,19 @@ project(_.web){
 		compile project		(_.util)
 		compile project 	(_.service)
 
-		compile				_.spring_webmvc
+		compile				_.spring_context
 		compile				_.spring_webflow
 		compile				_.spring_faces
 		compile				_.spring_security
 		compile				_.spring_security_config
 		compile				_.spring_security_taglibs
-		compile				_.groovy
+		
+		compile				_.groovy		
 		compile 			_.jackson
+		
+		compile				_.primerfaces
 		compile				_.jsf_api
 		compile				_.jsf_impl
-		compile				_.primerfaces
 
 		providedCompile 	_.servlet
 
