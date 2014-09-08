@@ -7,22 +7,20 @@
 # linux 
 *~
 
-# Eclipse
+# eclipse
 *.settings
 *.project
 *.classpath
-
-*/.gitignore
 *.cache
 
+# git
+*/.gitignore
+
 # gradle
-*.gradle
-/build/
-/bin/
+/.gradle
+/build
+/bin
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 
 hs_err_pid*
-/build/
-
-

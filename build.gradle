@@ -10,7 +10,7 @@ project.ext {
 
 	// server
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
-	jetty			=	'org.mortbay.jetty:jetty-runner:8.1.0.RC0'
+	jetty			=	'org.eclipse.jetty:jetty-runner:9.2.2.v20140723'
 
 	// spring
 	spring_context			=	'org.springframework:spring-context:4.1.0.RELEASE'
@@ -49,9 +49,7 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven{
-			url 'http://repository.primefaces.org'		
-		}
+		maven{ url 'http://repository.primefaces.org'		 }
 	}
 
 	dependencies {
@@ -115,7 +113,7 @@ project(_.web){
 		}
 	}
 
-	configurations { jetty8 }
+	configurations { jetty_eclipse }
 
 	dependencies {
 		compile project		(_.util)
@@ -127,23 +125,23 @@ project(_.web){
 		compile				_.spring_security
 		compile				_.spring_security_config
 		compile				_.spring_security_taglibs
-		
-		compile				_.groovy		
+
+		compile				_.groovy
 		compile 			_.jackson
-		
+
 		compile				_.primerfaces
 		compile				_.jsf_api
 		compile				_.jsf_impl
 
-		providedCompile 	_.servlet
+		providedCompile		_.servlet
 
-		jetty8			 	_.jetty
+		jetty_eclipse	 	_.jetty
 	}
 
 	task jetty(type: JavaExec) {
-		main = "org.mortbay.jetty.runner.Runner"
+		main = 'org.eclipse.jetty.runner.Runner'
 		args = [war.archivePath]
-		classpath configurations.jetty8
+		classpath configurations.jetty_eclipse
 	}
 }
 

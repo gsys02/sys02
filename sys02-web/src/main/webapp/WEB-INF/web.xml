@@ -34,6 +34,12 @@
 		<url-pattern>/web/*</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>faces</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
 	<!-- SPRING SECURITY -->
 
 	<filter>
@@ -47,7 +53,7 @@
 		<servlet-name>mvc</servlet-name>
 	</filter-mapping>
 
-	<!-- JSF 2 -->
+	<!-- JSF -->
 
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
