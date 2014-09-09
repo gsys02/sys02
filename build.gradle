@@ -1,6 +1,6 @@
 project.ext {
 	java_version	=	'1.7'
-	version			=   '0.0.00'
+	version			=   '0.0.02'
 
 	// projects
 	util			= 	':sys02-util'
