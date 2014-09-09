@@ -10,7 +10,7 @@ project.ext {
 
 	// server
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
-	jetty			=	'org.eclipse.jetty:jetty-runner:9.2.2.v20140723'
+	jetty			=	'org.mortbay.jetty:jetty-runner:8.1.15.v20140411'
 
 	// spring
 	spring_context			=	'org.springframework:spring-context:4.1.0.RELEASE'
@@ -49,7 +49,7 @@ subprojects {
 	repositories {
 		mavenLocal()
 		mavenCentral()
-		maven{ url 'http://repository.primefaces.org'		 }
+		maven{ url 'http://repository.primefaces.org'}
 	}
 
 	dependencies {
@@ -100,21 +100,14 @@ project(_.service){
 project(_.web){
 
 	apply plugin: 'war'
+	apply plugin: 'jetty'
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
-	eclipse {
-		wtp {
-			facet {
-				facet name: 'java', version: _.java_version
-				facet name: 'jst.web', version: '2.5'
-				facet name: 'wst.jsdt.web', version: '1.0'
-			}
-		}
+	configurations {
+		jetty8
 	}
-
-	configurations { jetty_eclipse }
-
+	
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
@@ -134,14 +127,14 @@ project(_.web){
 		compile				_.jsf_impl
 
 		providedCompile		_.servlet
-
-		jetty_eclipse	 	_.jetty
+		
+		jetty8			 	_.jetty
 	}
 
 	task jetty(type: JavaExec) {
-		main = 'org.eclipse.jetty.runner.Runner'
+		main = "org.mortbay.jetty.runner.Runner"
 		args = [war.archivePath]
-		classpath configurations.jetty_eclipse
+		classpath configurations.jetty8
 	}
 }
 
