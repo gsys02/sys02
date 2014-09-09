@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.jsf;
+package sys02.web.jsf;
 
 import javax.faces.context.FacesContext;
 

@@ -6,17 +6,35 @@
 	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/layouts/standard.xhtml">
 
+
+	
+
 	<ui:define name="title">
 	</ui:define>
 
 	<ui:define name="notes">
 
+
+
+
 	</ui:define>
+
+
 
 	<ui:define name="content">
 		<h:form>
 			<p:commandButton value="Next" action="next" immediate="true" />
+
+			<p:commandButton value="hello" actionListener="#{page.ya}" update="t"/>
+			<p:outputLabel id="t" value="#{page.msg}"/>
+
 		</h:form>
+
+
+		<ui:fragment rendered="false">
+        This is the first item!
+    </ui:fragment>
+
 	</ui:define>
 
 </ui:composition>

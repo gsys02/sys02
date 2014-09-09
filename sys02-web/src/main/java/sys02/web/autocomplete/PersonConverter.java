@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.autocomplete;
+package sys02.web.autocomplete;
 
 import java.util.ArrayList;
 import java.util.List;

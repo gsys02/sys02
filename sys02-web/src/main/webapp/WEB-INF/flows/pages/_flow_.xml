@@ -6,12 +6,16 @@
 		http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd
 	">
 
+	<on-start>
+		<evaluate expression="pages.init()"></evaluate>
+	</on-start>
+
 	<view-state id="page">
-		<transition on="next" to="list"/>		
+		<transition on="next" to="list" />
 	</view-state>
 
 	<view-state id="list">
-	<transition on="back" to="page"/>
+		<transition on="back" to="page" />
 	</view-state>
 
 </flow>

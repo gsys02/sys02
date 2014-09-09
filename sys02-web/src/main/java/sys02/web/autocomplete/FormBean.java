@@ -1,7 +1,10 @@
-package org.springframework.samples.webflow.autocomplete;
+package sys02.web.autocomplete;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class FormBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

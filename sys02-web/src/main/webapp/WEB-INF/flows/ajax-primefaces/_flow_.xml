@@ -8,14 +8,13 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="account" class="org.springframework.samples.webflow.validation.Account" />
+	
 
-	<view-state id="edit" model="account">
-		<transition on="next" to="review"/>
-	</view-state>
-
-	<view-state id="review">
-		<transition on="back" to="edit"/>
+	<view-state id="view">
+		<transition on="suggest" >
+			<evaluate expression="userBean.createEmailSuggestion(flowRequestContext)"
+				result="viewScope.emailSuggestion" />
+		</transition>
 	</view-state>
 
 </flow>

@@ -1,11 +1,12 @@
-package org.springframework.samples.webflow.ajax;
+package sys02.web.ajax;
 
 import java.io.Serializable;
 
 import org.springframework.binding.message.MessageBuilder;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.webflow.execution.RequestContext;
-
+@Service
 public class UserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;

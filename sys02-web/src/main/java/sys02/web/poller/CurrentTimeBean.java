@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.poller;
+package sys02.web.poller;
 
 import java.util.Date;
 

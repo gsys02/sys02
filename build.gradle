@@ -38,7 +38,7 @@ project.ext {
 }
 def _=project.ext
 
-allprojects {  version = _.version  }
+allprojects {   version = _.version }
 
 subprojects {
 	apply plugin: 'java'
@@ -104,10 +104,8 @@ project(_.web){
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
-	configurations {
-		jetty8
-	}
-	
+	configurations { jetty8 }
+
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
@@ -127,7 +125,7 @@ project(_.web){
 		compile				_.jsf_impl
 
 		providedCompile		_.servlet
-		
+
 		jetty8			 	_.jetty
 	}
 

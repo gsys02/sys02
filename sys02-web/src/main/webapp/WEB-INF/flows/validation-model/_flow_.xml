@@ -8,13 +8,16 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="userBean" class="org.springframework.samples.webflow.ajax.UserBean" />
 
-	<view-state id="view">
-		<transition on="suggest" >
-			<set name="viewScope.emailSuggestion" value="userBean.createEmailSuggestion(flowRequestContext)"/>
-			<render fragments="emailForm" />
+
+	<view-state id="edit" model="reservation">
+		<transition on="next" to="review">
+			<evaluate expression="reservation.validateDates(messageContext)" />
 		</transition>
+	</view-state>
+
+	<view-state id="review">
+		<transition on="back" to="edit"/>
 	</view-state>
 
 </flow>

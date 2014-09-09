@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.upload;
+package sys02.web.upload;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
