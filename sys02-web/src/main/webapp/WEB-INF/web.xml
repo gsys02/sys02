@@ -39,7 +39,7 @@
 		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<!-- SPRING SECURITY -->
 
 	<filter>
@@ -54,6 +54,11 @@
 	</filter-mapping>
 
 	<!-- JSF -->
+
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>bootstrap</param-value>
+	</context-param>
 
 	<context-param>
 		<param-name>javax.faces.DEFAULT_SUFFIX</param-name>
