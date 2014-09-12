@@ -23,7 +23,7 @@ project.ext {
 	//jsf
 	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
 	jsf_impl		=   'com.sun.faces:jsf-impl:2.2.0'
-	primerfaces		=   'org.primefaces:primefaces:5.0'
+	primefaces		=   'org.primefaces:primefaces:5.0'
 
 	// lang
 	groovy 			=	'org.codehaus.groovy:groovy-all:2.3.6'
@@ -45,6 +45,7 @@ subprojects {
 	apply plugin: 'eclipse'
 
 	sourceCompatibility = _.java_version
+	targetCompatibility = _.java_version
 
 	repositories {
 		mavenLocal()
@@ -120,7 +121,7 @@ project(_.web){
 		compile				_.groovy
 		compile 			_.jackson
 
-		compile				_.primerfaces
+		compile				_.primefaces
 		compile				_.jsf_api
 		compile				_.jsf_impl
 
