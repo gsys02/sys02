@@ -100,8 +100,7 @@ project(_.service){
  */
 project(_.web){
 
-	apply plugin: 'war'
-	apply plugin: 'jetty'
+	apply plugin: 'war'	
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
