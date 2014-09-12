@@ -100,11 +100,16 @@ project(_.service){
  */
 project(_.web){
 
-	apply plugin: 'war'	
+	apply plugin: 'war'
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
 	configurations { jetty8 }
+
+	sourceSets {
+		main { groovy { srcDir 'src/groovy' } }
+		test { groovy { srcDir 'test/groovy' } }
+	}
 
 	dependencies {
 		compile project		(_.util)
