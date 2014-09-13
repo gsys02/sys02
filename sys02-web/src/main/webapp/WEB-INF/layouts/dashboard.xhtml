@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<!-- Variable globales de recursos HTML-->
+<ui:param name="path" value="${request.contextPath}/web" />
+<ui:param name="public" value="${path}/public" />
+<ui:param name="css" value="${public}/css" />
+<ui:param name="img" value="${public}/img" />
+<ui:param name="js" value="${public}/js" />
+
+<head>
+<link href="${css}/dashboard.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+	<div class="menu">
+		<ui:insert name="menu" />
+	</div>
+
+	<div class="main">
+		<ui:insert name="main" />
+	</div>
+
+	<div class="footer">
+		<ui:insert name="footer" />
+	</div>
+</body>
+
+</html>
