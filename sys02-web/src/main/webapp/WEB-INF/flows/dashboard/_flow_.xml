@@ -5,12 +5,7 @@
 		http://www.springframework.org/schema/webflow
 		http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd
 	">
-	
-	
-	<view-state id="main" >
-		<transition on="a" to="b" />
-	</view-state>
 
-	<end-state id="finish"></end-state>
+	<view-state id="dashboard" />
 
 </flow>

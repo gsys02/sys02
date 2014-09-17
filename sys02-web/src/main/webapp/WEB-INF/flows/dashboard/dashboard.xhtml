@@ -1,0 +1,62 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/layouts/dashboard.xhtml">
+
+	<ui:define name="menu">
+
+		<h:form id="f">
+			<p:growl id="messages" />
+
+			<p:menubar>
+				<p:submenu label="Administración">
+					<p:menuitem value="Usuario" url="#" id="user"/>
+					<p:menuitem value="PDV" url="#" />
+					<p:menuitem value="SKU" url="#" />
+					<p:menuitem value="Catálogos" url="#" />
+					<p:menuitem value="Agenda" url="#" />
+					<p:menuitem value="Carga de rutas" url="#" />
+				</p:submenu>
+
+				<p:menuitem value="Geolocalización" />
+
+				<p:menuitem value="Dashboard" />
+
+				<p:submenu label="One pager">
+					<p:menuitem value="Nuevo" url="#" />
+				</p:submenu>
+
+				<p:menuitem value="Galería" />
+
+				<p:menuitem value="Precios" />
+
+				<f:facet name="options">
+					<p:inputText style="margin-right:10px" placeholder="Search" />
+
+					<p:menuButton value="User">
+						<p:menuitem value="Mi perfil" icon="ui-icon-person"
+							action="profile" immediate="true" />
+					</p:menuButton>
+				</f:facet>
+
+			</p:menubar>
+		</h:form>
+
+	</ui:define>
+
+	<ui:define name="main">
+
+		<iframe id="main" class="frame"/>
+
+
+	</ui:define>
+
+	<ui:define name="footer">
+	footer
+	</ui:define>
+
+</ui:composition>

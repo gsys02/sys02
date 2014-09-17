@@ -7,7 +7,7 @@ import util.*
 
 
 @Service
-class Main {
+class Menu {
 
 	private Logger log = Util.getLog(this)
 
