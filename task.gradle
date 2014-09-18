@@ -1,0 +1,46 @@
+
+/*
+ * Crear un nuevo proyecto
+ * gradle p -P_=<namee>
+ */
+task p <<{	
+	
+	
+	
+	namee="../${_}"
+
+	File f = file(namee)
+	f.mkdir()
+
+	[
+		'util',
+		'model',
+		'service',
+		'web'
+	].each() {  
+		f=file("../${_}/${_}-${it}")
+		f.mkdir();  
+	}
+
+	copy{
+		from "build.gradle"
+		into namee
+		filter {  line ->
+			!line.contains('task.gradle') ? line : ''
+		}
+	}
+}
+
+task n <<{
+
+	namee="../${_}"
+	
+	print namee
+	
+	[
+		'util',
+		'model',
+		'service',
+		'web'
+	].each() {  print "w-${it}"  };
+}

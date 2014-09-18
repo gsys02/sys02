@@ -1,13 +1,15 @@
+apply from: 'task.gradle'
+
 project.ext {
 	java_version	=	'1.7'
 	version			=   '0.0.02'
 
 	// projects
-	util			= 	':sys02-util'
-	model			= 	':sys02-model'
-	service			= 	':sys02-service'
-	web				= 	':sys02-web'
-
+	util			= 	":${project.name}-util"
+	model			= 	":${project.name}-model"
+	service			= 	":${project.name}-service"
+	web				= 	":${project.name}-web"
+	
 	// server
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
 	jetty			=	'org.mortbay.jetty:jetty-runner:8.1.15.v20140411'
