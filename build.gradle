@@ -1,12 +1,14 @@
+apply from: 'task.gradle'
+
 project.ext {
 	java_version	=	'1.7'
 	version			=   '0.0.02'
 
 	// projects
-	util			= 	':sys02-util'
-	model			= 	':sys02-model'
-	service			= 	':sys02-service'
-	web				= 	':sys02-web'
+	util			= 	":${project.name}-util"
+	model			= 	":${project.name}-model"
+	service			= 	":${project.name}-service"
+	web				= 	":${project.name}-web"
 
 	// server
 	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
@@ -19,6 +21,9 @@ project.ext {
 	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
 	spring_security_config	=	'org.springframework.security:spring-security-config:3.2.5.RELEASE'
 	spring_security_taglibs	=	'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
+
+	pac4j_security			= 	'org.pac4j:spring-security-pac4j:1.2.3'
+	pac4j_cas				=	'org.pac4j:pac4j-cas:1.5.1'
 
 	//jsf
 	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
@@ -107,8 +112,10 @@ project(_.web){
 	configurations { jetty8 }
 
 	sourceSets {
-		main { groovy { srcDir 'src/groovy' } }
-		test { groovy { srcDir 'test/groovy' } }
+		main { groovy { srcDir 'src/groovy'
+			} }
+		test { groovy { srcDir 'test/groovy'
+			} }
 	}
 
 	dependencies {
@@ -122,6 +129,9 @@ project(_.web){
 		compile				_.spring_security_config
 		compile				_.spring_security_taglibs
 
+		compile 			_.pac4j_security
+		compile 			_.pac4j_cas
+		
 		compile				_.groovy
 		compile 			_.jackson
 
