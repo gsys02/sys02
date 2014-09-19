@@ -9,7 +9,7 @@
     ">
 
 	<beans:bean id="cert" class="sys02.web.util.Cert" />
-
+	
 	<http use-expressions="true" pattern="/**" entry-point-ref="casEntryPoint">
 
 		<custom-filter after="CAS_FILTER" ref="clientFilter" />

@@ -9,10 +9,10 @@ html,body {
 
 .menu {
 	width: 100%;	
-	position: fixed;
+	position: fixed;	
 }
 .menu form{
-	
+	margin: 0;
 }
 
 #main {

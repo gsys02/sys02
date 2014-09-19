@@ -1,9 +1,9 @@
 $(function() {
 
-	$('#f\\:user').click(function() {
+	$('#f_menubar\\:user').click(function() {
 
 		
-		$('#main').attr('src','http://dev:8080/web/home')
+		//$('#main').attr('src','http://dev:8080/web/home')
 		
 		//$('#main').html("s");
 

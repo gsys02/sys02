@@ -2,7 +2,7 @@ apply from: 'task.gradle'
 
 project.ext {
 	java_version			= '1.7'
-	version					= '0.0.02'
+	version					= '0.0.04'
 
 	// projects
 	util					= ":${project.name}-util"
@@ -36,6 +36,8 @@ project.ext {
 
 	// util
 	slf4j					= 'org.slf4j:slf4j-log4j12:1.7.5'
+	javax					= 'javax.annotation:javax.annotation-api:1.2'
+	
 	
 	// test
 	junit					= 'junit:junit:4.11'
@@ -108,6 +110,8 @@ project(_.web){
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
+	war.archiveName "${rootProject.name}-${project.version}.war"
+	
 	configurations { jetty8 }
 
 	sourceSets {
@@ -116,7 +120,7 @@ project(_.web){
 		test { groovy { srcDir 'test/groovy'
 			} }
 	}
-
+	
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
@@ -135,6 +139,7 @@ project(_.web){
 		compile				_.primefaces
 		compile				_.jsf_api
 		compile				_.jsf_impl
+		compile				_.javax
 
 		providedCompile		_.servlet
 

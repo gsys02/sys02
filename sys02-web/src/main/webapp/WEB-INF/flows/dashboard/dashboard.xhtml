@@ -1,20 +1,18 @@
-<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui"
-	template="/WEB-INF/layouts/dashboard.xhtml">
+	template="/WEB-INF/flows/template.xhtml">
 
 	<ui:define name="menu">
 
-		<h:form id="f">
-			<p:growl id="messages" />
-
+		<h:form id="f_menubar">
 			<p:menubar>
 				<p:submenu label="Administración">
-					<p:menuitem value="Usuario"  id="user" />
+					<p:menuitem value="Usuario" id="user" />
 					<p:menuitem value="PDV" url="#" />
 					<p:menuitem value="SKU" url="#" />
 					<p:menuitem value="Catálogos" url="#" />
@@ -38,8 +36,7 @@
 					<p:inputText style="margin-right:10px" placeholder="Search" />
 
 					<p:menuButton value="User">
-						<p:menuitem value="Mi perfil" icon="ui-icon-person"
-							action="profile" immediate="true" />
+						<p:menuitem value="Mi perfil" icon="ui-icon-person" actionListener="#{dashboard.ya}" />
 					</p:menuButton>
 				</f:facet>
 
@@ -47,8 +44,6 @@
 		</h:form>
 
 	</ui:define>
-
-	
 
 	<ui:define name="footer">
 	footer
