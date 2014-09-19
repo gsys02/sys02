@@ -1,45 +1,44 @@
 apply from: 'task.gradle'
 
 project.ext {
-	java_version	=	'1.7'
-	version			=   '0.0.02'
+	java_version			= '1.7'
+	version					= '0.0.02'
 
 	// projects
-	util			= 	":${project.name}-util"
-	model			= 	":${project.name}-model"
-	service			= 	":${project.name}-service"
-	web				= 	":${project.name}-web"
+	util					= ":${project.name}-util"
+	model					= ":${project.name}-model"
+	service					= ":${project.name}-service"
+	web						= ":${project.name}-web"
 
 	// server
-	servlet			=   'javax.servlet:javax.servlet-api:3.0.1'
-	jetty			=	'org.mortbay.jetty:jetty-runner:8.1.15.v20140411'
+	servlet					= 'javax.servlet:javax.servlet-api:3.0.1'
+	jetty					= 'org.mortbay.jetty:jetty-runner:8.1.15.v20140411'
 
 	// spring
-	spring_context			=	'org.springframework:spring-context:4.1.0.RELEASE'
-	spring_webflow			=	'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
-	spring_faces			=	'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
-	spring_security 		= 	'org.springframework.security:spring-security-web:3.2.5.RELEASE'
-	spring_security_config	=	'org.springframework.security:spring-security-config:3.2.5.RELEASE'
-	spring_security_taglibs	=	'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
+	spring_context			= 'org.springframework:spring-context:4.1.0.RELEASE'
+	spring_webflow			= 'org.springframework.webflow:spring-webflow:2.4.0.RELEASE'
+	spring_faces			= 'org.springframework.webflow:spring-faces:2.4.0.RELEASE'
+	spring_security 		= 'org.springframework.security:spring-security-web:3.2.5.RELEASE'
+	spring_security_config	= 'org.springframework.security:spring-security-config:3.2.5.RELEASE'
+	spring_security_taglibs	= 'org.springframework.security:spring-security-taglibs:3.2.5.RELEASE'
 
-	pac4j_security			= 	'org.pac4j:spring-security-pac4j:1.2.3'
-	pac4j_cas				=	'org.pac4j:pac4j-cas:1.5.1'
+	pac4j_security			= 'org.pac4j:spring-security-pac4j:1.2.3'
+	pac4j_cas				= 'org.pac4j:pac4j-cas:1.5.1'
 
 	//jsf
-	jsf_api			=	'com.sun.faces:jsf-api:2.2.0'
-	jsf_impl		=   'com.sun.faces:jsf-impl:2.2.0'
-	primefaces		=   'org.primefaces:primefaces:5.0'
+	jsf_api					= 'com.sun.faces:jsf-api:2.2.0'
+	jsf_impl		   		= 'com.sun.faces:jsf-impl:2.2.0'
+	primefaces				= 'org.primefaces:primefaces:5.0'
 
 	// lang
-	groovy 			=	'org.codehaus.groovy:groovy-all:2.3.6'
-	scala			=	'org.scala-lang:scala-compiler:2.11.0'
+	groovy 					= 'org.codehaus.groovy:groovy-all:2.3.6'
+	scala					= 'org.scala-lang:scala-compiler:2.11.0'
 
 	// util
-	slf4j			=	'org.slf4j:slf4j-log4j12:1.7.5'
-	jackson			=	'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
-
+	slf4j					= 'org.slf4j:slf4j-log4j12:1.7.5'
+	
 	// test
-	junit			=	'junit:junit:4.11'
+	junit					= 'junit:junit:4.11'
 }
 def _=project.ext
 
@@ -112,14 +111,17 @@ project(_.web){
 	configurations { jetty8 }
 
 	sourceSets {
-		main { groovy { srcDir 'src/groovy' } }
-		test { groovy { srcDir 'test/groovy' } }
+		main { groovy { srcDir 'src/groovy'
+			} }
+		test { groovy { srcDir 'test/groovy'
+			} }
 	}
 
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
-
+		compile				_.groovy
+		
 		compile				_.spring_context
 		compile				_.spring_webflow
 		compile				_.spring_faces
@@ -129,9 +131,6 @@ project(_.web){
 
 		compile 			_.pac4j_security
 		compile 			_.pac4j_cas
-
-		compile				_.groovy
-		compile 			_.jackson
 
 		compile				_.primefaces
 		compile				_.jsf_api
