@@ -112,10 +112,8 @@ project(_.web){
 	configurations { jetty8 }
 
 	sourceSets {
-		main { groovy { srcDir 'src/groovy'
-			} }
-		test { groovy { srcDir 'test/groovy'
-			} }
+		main { groovy { srcDir 'src/groovy' } }
+		test { groovy { srcDir 'test/groovy' } }
 	}
 
 	dependencies {
@@ -131,7 +129,7 @@ project(_.web){
 
 		compile 			_.pac4j_security
 		compile 			_.pac4j_cas
-		
+
 		compile				_.groovy
 		compile 			_.jackson
 

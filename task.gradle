@@ -1,4 +1,3 @@
-
 /*
  * Crear un nuevo proyecto web
  * gradle addweb -Pp=<project_name>
@@ -15,17 +14,18 @@ task addweb <<{
 		'model',
 		'service',
 		'web'
-	].each() { file("${_subproject}-${it}").mkdir() }
+	].each() {
+		file("${_subproject}-${it}").mkdir()
+	}
 
 	copy{
 		from "build.gradle"
 		into _project
-		filter {  line ->
+		filter {
+			line ->
 			!line.contains('task.gradle') ? line : ''
 		}
 	}
 }
 
-task t <<{
-	println project.name
-}
+
