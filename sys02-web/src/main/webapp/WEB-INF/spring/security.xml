@@ -10,7 +10,7 @@
 
 	<http use-expressions="true" pattern="/**" entry-point-ref="casEntryPoint">
 		<custom-filter after="CAS_FILTER" ref="clientFilter" />
-		<intercept-url pattern="/web/dashboard" access="hasRole('ADMIN')" />
+		<intercept-url pattern="/web/**" access="isAuthenticated()" />
 		
 	</http>
 
@@ -46,7 +46,7 @@
 	</beans:bean>
 
 	<beans:bean id="clients" class="org.pac4j.core.client.Clients">
-		<beans:property name="callbackUrl" value="http://localhost:8080/callback" />
+		<beans:property name="callbackUrl" value="http://localhost:8080/web/callback" />
 		<beans:property name="clients">
 			<beans:list>
 				<beans:ref bean="casClient" />
