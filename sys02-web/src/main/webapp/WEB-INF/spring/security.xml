@@ -8,21 +8,39 @@
            http://www.springframework.org/schema/security/spring-security-3.2.xsd
     ">
 
+	<beans:bean id="cert" class="sys02.web.util.Cert" />
+
 	<http use-expressions="true" pattern="/**" entry-point-ref="casEntryPoint">
+
 		<custom-filter after="CAS_FILTER" ref="clientFilter" />
-		<intercept-url pattern="/web/**" access="isAuthenticated()" />
-		
+
+		<intercept-url pattern="/web/dashboard" access="isAuthenticated()" />
+
 	</http>
-
-
 
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider ref="clientProvider" />
 	</authentication-manager>
 
+	<beans:bean id="clientProvider"
+		class="org.pac4j.springframework.security.authentication.ClientAuthenticationProvider">
+		<beans:property name="clients" ref="clients" />
+	</beans:bean>
 
+	<beans:bean id="clients" class="org.pac4j.core.client.Clients">
+		<beans:property name="callbackUrl"
+			value="http://localhost:8080/web/callback" />
+		<beans:property name="clients">
+			<beans:list>
+				<beans:ref bean="casClient" />
+			</beans:list>
+		</beans:property>
+	</beans:bean>
 
-	<beans:bean id="cert" class="sys02.web.util.Cert" />
+	<beans:bean id="casClient" class="org.pac4j.cas.client.CasClient">
+		<beans:property name="casLoginUrl" value="https://gnextia.com/cas/login" />
+		<beans:property name="casPrefixUrl" value="https://gnextia.com/cas/p3" />
+	</beans:bean>
 
 	<beans:bean id="servletContextAttributeExporter"
 		class="org.springframework.web.context.support.ServletContextAttributeExporter">
@@ -33,25 +51,9 @@
 		</beans:property>
 	</beans:bean>
 
-
 	<beans:bean id="casEntryPoint"
 		class="org.pac4j.springframework.security.web.ClientAuthenticationEntryPoint">
 		<beans:property name="client" ref="casClient" />
-	</beans:bean>
-
-	<beans:bean id="casClient" class="org.pac4j.cas.client.CasClient">
-		<beans:property name="casLoginUrl"
-			value="https://www.gnextia.com/cas/login" />
-		<beans:property name="casPrefixUrl" value="https://www.gnextia.com/cas/p3" />
-	</beans:bean>
-
-	<beans:bean id="clients" class="org.pac4j.core.client.Clients">
-		<beans:property name="callbackUrl" value="http://localhost:8080/web/callback" />
-		<beans:property name="clients">
-			<beans:list>
-				<beans:ref bean="casClient" />
-			</beans:list>
-		</beans:property>
 	</beans:bean>
 
 	<beans:bean id="sas"
@@ -64,11 +66,6 @@
 		<beans:property name="sessionAuthenticationStrategy"
 			ref="sas" />
 		<beans:property name="authenticationManager" ref="authenticationManager" />
-	</beans:bean>
-
-	<beans:bean id="clientProvider"
-		class="org.pac4j.springframework.security.authentication.ClientAuthenticationProvider">
-		<beans:property name="clients" ref="clients" />
 	</beans:bean>
 
 </beans:beans>

@@ -1,14 +1,14 @@
 package tes;
 
-import static org.junit.Assert.*
-
+import groovy.util.logging.Log4j
 import org.junit.Test
 
+@Log4j
 class Testt {
 
 	@Test
-	public void test() {
-		println "hola"
+	void test() {
+		log.info "hola"
 	}
 }
 

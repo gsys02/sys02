@@ -3,7 +3,9 @@ $(function() {
 	$('#f\\:user').click(function() {
 
 		
-		$('#main').attr('src','http://dev:8080/web/login')
+		$('#main').attr('src','http://dev:8080/web/home')
+		
+		//$('#main').html("s");
 
 		
 		
