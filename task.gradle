@@ -25,6 +25,8 @@ task addweb <<{
 			line ->
 			!line.contains('task.gradle') ? line : ''
 		}
+		
+		
 	}
 }
 

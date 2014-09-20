@@ -110,7 +110,8 @@ project(_.web){
 	apply plugin: 'groovy'
 	apply plugin: 'eclipse-wtp'
 
-	war.archiveName "${rootProject.name}-${project.version}.war"
+	//war.archiveName "${rootProject.name}-${project.version}.war"
+	war.archiveName "${rootProject.name}.war"
 	
 	configurations { jetty8 }
 
