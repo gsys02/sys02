@@ -29,7 +29,7 @@
 
 	<beans:bean id="clients" class="org.pac4j.core.client.Clients">
 		<beans:property name="callbackUrl"
-			value="http://localhost:8080/web/callback" />
+			value="${cas.callback}" />
 		<beans:property name="clients">
 			<beans:list>
 				<beans:ref bean="casClient" />
@@ -38,8 +38,8 @@
 	</beans:bean>
 
 	<beans:bean id="casClient" class="org.pac4j.cas.client.CasClient">
-		<beans:property name="casLoginUrl" value="https://gnextia.com/cas/login" />
-		<beans:property name="casPrefixUrl" value="https://gnextia.com/cas/p3" />
+		<beans:property name="casLoginUrl" value="${cas.loginurl}" />
+		<beans:property name="casPrefixUrl" value="${cas.prefixurl}" />
 	</beans:bean>
 
 	<beans:bean id="servletContextAttributeExporter"

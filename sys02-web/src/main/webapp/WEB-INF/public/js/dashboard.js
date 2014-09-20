@@ -3,7 +3,7 @@ $(function() {
 	$('#f_menubar\\:user').click(function() {
 
 		
-		//$('#main').attr('src','http://dev:8080/web/home')
+		$('#main').attr('src','http://www.w3schools.com/tags/tag_br.asp')
 		
 		//$('#main').html("s");
 

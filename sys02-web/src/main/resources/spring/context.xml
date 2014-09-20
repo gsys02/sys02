@@ -13,6 +13,12 @@
 
 	<mvc:annotation-driven />
 	<mvc:resources location="/WEB-INF/public/" mapping="/public/**" />
+	<context:property-placeholder location="classpath*:web.properties" />
 	<context:component-scan base-package="sys02.web" />
+
+	<!-- <context:component-scan base-package="mx.org.aterna.certificado.edomx"> -->
+	<!-- <context:include-filter type="regex" -->
+	<!-- expression="(dao|service|view)\..*" /> -->
+	<!-- </context:component-scan> -->
 
 </beans>
