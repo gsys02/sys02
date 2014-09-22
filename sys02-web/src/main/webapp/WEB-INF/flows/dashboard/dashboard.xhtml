@@ -14,7 +14,7 @@
 		<h:form id="f_menubar">
 			<p:menubar>
 				<p:submenu label="Administración">
-					<p:menuitem value="Usuario" id="user" />
+					<p:menuitem value="Usuario" onclick="onMain('http://www.w3schools.com/tags/tag_br.asp')"/>
 					<p:menuitem value="PDV" url="#" />
 					<p:menuitem value="SKU" url="#" />
 					<p:menuitem value="Catálogos" url="#" />
@@ -50,13 +50,14 @@
 	<ui:define name="footer">
 	footer
 	<br/>
-		
+	
+	<!-- 	
 	session: ${session}
 	<br/>	
 	request: ${request}
 	<br/>
 	application: ${application}
-	
+	 -->
 		
 	</ui:define>
 

@@ -9,6 +9,12 @@ class Testt {
 	@Test
 	void test() {
 		log.info "hola"
+
+
+		def list=['pro','test']
+
+		if (list.contains('pro'))
+			print "si"
 	}
 }
 

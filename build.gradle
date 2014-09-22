@@ -37,8 +37,8 @@ project.ext {
 	// util
 	slf4j					= 'org.slf4j:slf4j-log4j12:1.7.5'
 	javax					= 'javax.annotation:javax.annotation-api:1.2'
-	
-	
+
+
 	// test
 	junit					= 'junit:junit:4.11'
 }
@@ -112,21 +112,19 @@ project(_.web){
 
 	//war.archiveName "${rootProject.name}-${project.version}.war"
 	war.archiveName "${rootProject.name}.war"
-	
+
 	configurations { jetty8 }
 
 	sourceSets {
-		main { groovy { srcDir 'src/groovy'
-			} }
-		test { groovy { srcDir 'test/groovy'
-			} }
+		main { groovy { srcDir 'src/groovy' } }
+		test { groovy { srcDir 'test/groovy' } }
 	}
-	
+
 	dependencies {
 		compile project		(_.util)
 		compile project 	(_.service)
 		compile				_.groovy
-		
+
 		compile				_.spring_context
 		compile				_.spring_webflow
 		compile				_.spring_faces
@@ -145,6 +143,20 @@ project(_.web){
 		providedCompile		_.servlet
 
 		jetty8			 	_.jetty
+	}
+
+	/*
+	 * Para compilar deacuerdo al profile se debe pasar el parametro con -Pprofile=[pro|test]
+	 */
+	processResources{
+		doFirst {
+			if (project.hasProperty('profile')) {
+				exclude '**/web.properties'
+				rename ("web-${profile}.properties", 'web.properties')
+			}else{
+				exclude '**/web-*.properties'
+			}
+		}
 	}
 
 	task jetty(type: JavaExec) {
