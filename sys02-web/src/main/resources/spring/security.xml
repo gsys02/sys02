@@ -29,7 +29,7 @@
 
 	<beans:bean id="clients" class="org.pac4j.core.client.Clients">
 		<beans:property name="callbackUrl"
-			value="${cas.callback}" />
+			value="${cas.callbackurl}" />
 		<beans:property name="clients">
 			<beans:list>
 				<beans:ref bean="casClient" />
@@ -61,7 +61,7 @@
 
 	<beans:bean id="clientFilter"
 		class="org.pac4j.springframework.security.web.ClientAuthenticationFilter">
-		<beans:constructor-arg value="/callback" />
+		<beans:constructor-arg value="${cas.callback}" />
 		<beans:property name="clients" ref="clients" />
 		<beans:property name="sessionAuthenticationStrategy"
 			ref="sas" />
