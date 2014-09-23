@@ -19,7 +19,7 @@ task addweb <<{
 	}
 
 	copy{
-		from "build.gradle"
+		from 'build.gradle','settings.gradle'
 		into _project
 		filter {
 			line ->

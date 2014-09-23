@@ -1,1 +1,7 @@
-include "sys02-model","sys02-service","sys02-util","sys02-web"
+[
+	'util',
+	'model',
+	'service',
+	'web'
+].each() { include "${rootProject.name}-${it}" }
+

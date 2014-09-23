@@ -69,6 +69,12 @@ subprojects {
  * UTIL
  */
 project(_.util){
+	apply plugin: 'groovy'
+
+	sourceSets {
+		main { groovy { srcDir 'src/groovy' } }
+		test { groovy { srcDir 'test/groovy' } }
+	}
 }
 
 
@@ -78,6 +84,11 @@ project(_.util){
 project(_.model){
 
 	apply plugin: 'scala'
+
+	sourceSets {
+		main { scala { srcDir 'src/scala' } }
+		test { scala { srcDir 'test/scala' } }
+	}
 
 	dependencies {
 		compile project(_.util)
@@ -92,6 +103,11 @@ project(_.model){
 project(_.service){
 
 	apply plugin: 'groovy'
+
+	sourceSets {
+		main { groovy { srcDir 'src/groovy' } }
+		test { groovy { srcDir 'test/groovy' } }
+	}
 
 	dependencies {
 		compile project (_.util)
