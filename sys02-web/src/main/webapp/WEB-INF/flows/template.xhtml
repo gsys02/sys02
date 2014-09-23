@@ -5,15 +5,12 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<ui:param name="public" value="${request.contextPath}/web/public" />
-<ui:param name="css" value="${public}/css" />
-<ui:param name="img" value="${public}/img" />
-<ui:param name="js" value="${public}/js" />
 
 <h:head>
 	<title>system</title>
-	<link href="${css}/dashboard.css" type="text/css" rel="stylesheet" />
-	<script src="${js}/dashboard.js"></script>
+	<link href="${request.contextPath}/web/public/css/dashboard.css"
+		type="text/css" rel="stylesheet" />
+	<script src="${request.contextPath}/web/public/js/dashboard.js"></script>
 </h:head>
 
 <body>
@@ -21,7 +18,7 @@
 		<ui:insert name="menu" />
 	</div>
 
-	<iframe id="main"/>
+	<iframe id="main" />
 
 	<div class="footer">
 		<ui:insert name="footer" />
